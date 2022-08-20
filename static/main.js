@@ -30,7 +30,7 @@ socket.on('byebye', msg => {
 
 sendBtn.addEventListener('click', () => {
     const message = messageInput.value
-    message.value = ""
+    messageInput.value = ""
     console.log(message)
 
     socket.emit('message', message)
@@ -38,5 +38,6 @@ sendBtn.addEventListener('click', () => {
 
 socket.on('messageToClients', msg => {
     console.log(msg)
+    messagesBox.innerHTML += `<b>${msg}</b> <br>`
 })
 
